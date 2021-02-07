@@ -23,9 +23,17 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #include "hid_keycodes.h"
 #include "keyboard_config.h"
 #include "advanced_keycodes.h"
+#include "BlueMicro_display.h"
 #include "Key.h"
 #include "KeyScanner.h"
 #include <array>
+
+
+#ifdef BLUEMICRO_CONFIGURED_DISPLAY
+extern BlueMicro_Display OLED;        // needed to assign the update display callback
+extern DISPLAY_U8G2_CONSTRUCTOR u8g2; // needed to call the display functions
+#endif
+
 
 #define _COLEMAK 0
 #define _LOWER 1
@@ -58,5 +66,7 @@ void process_user_layers(uint16_t layermask);
 void setupKeymap();
 void encoder_callback(int step);
 extern std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix;
+extern DynamicState keyboardstate;
 
+void updateDisplay(PersistentState* cfg, DynamicState* stat);
 #endif /* KEYMAP_H */

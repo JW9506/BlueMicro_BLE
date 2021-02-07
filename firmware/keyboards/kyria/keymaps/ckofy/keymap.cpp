@@ -113,28 +113,38 @@ ADDLAYER(_ADJUST, Method::PRESS , adjust);
   RotaryEncoder.begin(ENCODER_PAD_A, ENCODER_PAD_B);    // Initialize Encoder
   RotaryEncoder.setCallback(encoder_callback);    // Set callback
   RotaryEncoder.start();    // Start encoder
+  
+    #ifdef BLUEMICRO_CONFIGURED_DISPLAY
+    OLED.setStatusDisplayCallback(updateDisplay);
+    #endif
 }
 
 void encoder_callback(int step)
 {
+  uint8_t layer = keyboardstate.layer;
   if ( step > 0 )
   {
-      switch(KeyScanner::localLayer)
+      switch(layer)
       {
-          case _LOWER: break;
-          case _RAISE: break;
-          default: KeyScanner::add_to_encoderKeys(KC_AUDIO_VOL_DOWN);
+      //  counterclockwise  
+          case _COLEMAK: KeyScanner::add_to_encoderKeys(LCTL(KC_Z)); break;
+      //    case _LOWER: KeyScanner::add_to_encoderKeys(KC_RIGHT); break;
+      //    case _RAISE: KeyScanner::add_to_encoderKeys(LSFT(KC_RIGHT)); break;
+          default: KeyScanner::add_to_encoderKeys(KC_AUDIO_VOL_DOWN); break;
       }
   }else
   {
-      switch(KeyScanner::localLayer)
+      switch(layer)
       {
-          case _LOWER: break;
-          case _RAISE: break;
-          default: KeyScanner::add_to_encoderKeys(KC_AUDIO_VOL_UP);
+     // clockwise  
+          case _COLEMAK: KeyScanner::add_to_encoderKeys(LCTL(KC_Y)); break;
+     //     case _LOWER: KeyScanner::add_to_encoderKeys(KC_LEFT);break;
+     //     case _RAISE: KeyScanner::add_to_encoderKeys(LSFT(KC_LEFT));break;
+	      default: KeyScanner::add_to_encoderKeys(KC_AUDIO_VOL_UP); break;
       }
   }  
 }
+
 
 void process_user_layers(uint16_t layermask)
 {
@@ -192,25 +202,34 @@ ADDLAYER(_ADJUST, Method::PRESS , adjust);
   RotaryEncoder.begin(ENCODER_PAD_A, ENCODER_PAD_B);    // Initialize Encoder
   RotaryEncoder.setCallback(encoder_callback);    // Set callback
   RotaryEncoder.start();    // Start encoder
+  
+    #ifdef BLUEMICRO_CONFIGURED_DISPLAY
+    OLED.setStatusDisplayCallback(updateDisplay);
+    #endif
 }
 
 void encoder_callback(int step)
 {
+  uint8_t layer = keyboardstate.layer;
   if ( step > 0 )
   {
-      switch(KeyScanner::localLayer)
-      {
-          case _LOWER: break;
-          case _RAISE: break;
-          default: KeyScanner::add_to_encoderKeys(KC_PGDN);
+      switch(layer)
+      { 
+	   // clockwise
+          case _COLEMAK: KeyScanner::add_to_encoderKeys(LCTL(KC_RIGHT)); break;
+       // case _LOWER: KeyScanner::add_to_encoderKeys(KC_LEFT); break;
+       // case _RAISE: break;
+          default: KeyScanner::add_to_encoderKeys(KC_PGDN);break;
       }
   }else
   {
-      switch(KeyScanner::localLayer)
+      switch(layer)
       {
-          case _LOWER: break;
-          case _RAISE: break;
-          default: KeyScanner::add_to_encoderKeys(KC_PGUP);
+      // counterclockwise  
+          case _COLEMAK: KeyScanner::add_to_encoderKeys(LCTL(KC_LEFT)); break;
+      //  case _LOWER: KeyScanner::add_to_encoderKeys(KC_RIGHT);break;
+      //  case _RAISE: break;
+          default: KeyScanner::add_to_encoderKeys(KC_PGUP);break;
       }
   }  
 }
@@ -221,3 +240,23 @@ void process_user_layers(uint16_t layermask)
 }
 
 #endif
+
+void updateDisplay(PersistentState* cfg, DynamicState* stat)
+{
+    #ifdef BLUEMICRO_CONFIGURED_DISPLAY
+    u8g2.setFontMode(1);	// Transparent
+    u8g2.setFontDirection(0);
+    battery(22,19,stat->vbat_per);
+    printline(0,28,stat->peer_name_prph);
+
+    char buffer [50];
+    u8g2.setFont(u8g2_font_helvB12_tf);	// choose a suitable font
+    switch(stat->layer)
+    {
+        case _COLEMAK:     u8g2.drawStr(0,128,"C"); break;
+        case _LOWER:      u8g2.drawStr(0,128,"L");break;
+        case _RAISE:     u8g2.drawStr(0,128,"R");break;
+        case _ADJUST:     u8g2.drawStr(0,128,"A");break;   
+    }
+    #endif
+}
