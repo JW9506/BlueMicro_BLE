@@ -1,5 +1,5 @@
 /*
-Copyright 2020 <Pierre Constantineau>
+Copyright 2020-2021 <Pierre Constantineau>
 
 3-Clause BSD License
 
@@ -76,6 +76,23 @@ void usb_wakeup()
     // Wake up host if we are in suspend mode and REMOTE_WAKEUP feature is enabled by host
     USBDevice.remoteWakeup();
   }
+  #endif
+}
+
+void usb_sendKeys(std::array<uint8_t,8> currentReport)
+{
+   #ifdef TINYUSB_AVAILABLE
+  uint8_t keycode[6];
+  uint8_t mods = 0;
+    mods = currentReport[0];                                                 // modifiers
+  keycode[0] = currentReport[1];                                           // Buffer
+  keycode[1] = currentReport[2];                                           // Buffer
+  keycode[2] = currentReport[3];                                           // Buffer
+  keycode[3] = currentReport[4];                                           // Buffer
+  keycode[4] = currentReport[5];                                           // Buffer
+  keycode[5] = currentReport[6];                                           // Buffer
+
+  USBhid.keyboardReport(RID_KEYBOARD, mods, keycode);
   #endif
 }
 

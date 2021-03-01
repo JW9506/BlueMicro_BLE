@@ -1,5 +1,5 @@
 /*
-Copyright 2018-2020 <Pierre Constantineau, Julian Komaromy>
+Copyright 2018-2021 <Pierre Constantineau, Julian Komaromy>
 
 3-Clause BSD License
 
@@ -25,13 +25,14 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #include <cstdint>
 #include <vector>
 #include <algorithm>
-
+#include <tuple>
 #include "hid_keycodes.h"
 #include "keyboard_config.h"
 #include "firmware_config.h"
 #include "keymap.h"
 #include "KeyState.h"
 #include "advanced_keycodes.h"
+#include "combo_engine.h"
 #include "Key.h" //already included through keymap.h do we need it here?
 
 
@@ -82,7 +83,8 @@ class KeyScanner {
         static unsigned long lastPressed;
         static uint16_t detectedlayerkeys;
         static uint16_t remoteLayer;
-        
+        static uint32_t combotimer;
+        static uint32_t triggerkeytimer;
         static uint8_t remoteMod;
         static uint8_t currentMod;
 

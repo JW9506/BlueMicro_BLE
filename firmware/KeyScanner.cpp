@@ -1,5 +1,5 @@
 /*
-Copyright 2018-2020 <Pierre Constantineau, Julian Komaromy>
+Copyright 2018-2021 <Pierre Constantineau, Julian Komaromy>
 
 3-Clause BSD License
 
@@ -18,7 +18,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 
 */
 #include "KeyScanner.h"
-#include <tuple>
+
 
 KeyScanner::KeyScanner(PersistentState* cfg, DynamicState* stat) {    // Constructor
     config=cfg;
@@ -123,11 +123,11 @@ void KeyScanner::updateBuffer()
     activeKeys.clear();
     bool emptyOneshot = false;
     //bool emptyOneshotLayer = false;
-
-    for (auto keycode : encoderKeys) 
-    {
-        activeKeys.push_back(keycode);
-    }
+    std::copy(encoderKeys.begin(), encoderKeys.end(), back_inserter(activeKeys));
+    //for (auto keycode : encoderKeys) //Consider using std::copy algorithm instead of a raw loop.
+   // {
+   //   activeKeys.push_back(keycode);
+   // }
 
     encoderKeys.clear();
 
@@ -292,6 +292,80 @@ bool KeyScanner::getReport()
         remotespecialkeycode=0;
     }
 
+    // process single-key substs (macros) first.
+    if (combos.anyMacrosConfigured())
+    {
+        if(combos.anyMacrosActive(activeKeys))
+        {
+            activeKeys = combos.processActiveMacros(activeKeys);
+        }
+    }
+
+    // process combos before generating HID reports
+    if (combos.anyCombosConfigured())
+    { 
+        uint8_t triggercount = combos.countActiveCombosKeys(activeKeys);
+        if  (triggercount>1)// we have a potential combo present
+        {
+            uint8_t activecount = combos.findActiveCombos(activeKeys);
+            if (activecount>0) // at least 1
+            {
+                if (activecount==1) // exactly 1
+                {
+                    activeKeys = combos.processActiveKeycodewithCombos(activeKeys);
+                    combotimer = status->timestamp;  // reset timers to current timestamp.
+                    triggerkeytimer = status->timestamp;
+                }
+                else // more than 2
+                {
+                    if (status->timestamp - combotimer > 200)// timeout to send biggest one...
+                    {
+                        activeKeys = combos.processActiveKeycodewithCombos(activeKeys);
+                        combotimer = status->timestamp;  // reset timers to current timestamp.
+                        triggerkeytimer = status->timestamp;
+                    }
+                    else // we are still transitioning remove all potential combo keys...
+                    {
+                        activeKeys = combos.processActiveKeycodewithComboKeys(activeKeys);
+                    }
+                }
+            }
+            else
+            { // if none are active, we might have to remove keycodes in case we are transitionning to/from a combo 
+                if (status->timestamp - combotimer < 75)// Transitionning out of a combo
+                {
+                    activeKeys = combos.processActiveKeycodewithComboKeys(activeKeys); 
+                }
+            }
+        }
+        else
+        {
+           if (triggercount==1) // we have a key used in a combo being pressed
+           {
+               // check if we have a "mono"
+              /* if (combos.findActiveCombos(activeKeys)) // at least 1
+                {
+                    if (combos.keycodebuffertosend.empty()) // buffer has stuff in it - skip adding the "mono"
+                    {
+                    activeKeys = combos.processActiveKeycodewithCombos(activeKeys);
+                    combotimer = status->timestamp;  // reset timers to current timestamp.
+                    triggerkeytimer = status->timestamp;
+                    }
+                }
+                else */
+                if (status->timestamp - triggerkeytimer < 75)// Transitionning out/in of a combo
+                {
+                    activeKeys = combos.processActiveKeycodewithComboKeys(activeKeys); 
+                }
+           }
+           else
+           {
+                triggerkeytimer = status->timestamp;
+                combotimer = status->timestamp;
+           }
+        }    
+    }
+
     for (auto keycode : activeKeys) 
     {
         auto hidKeycode = static_cast<uint8_t>(keycode & 0x00FF);
@@ -345,6 +419,7 @@ if (activeKeys.empty() && processingmacros) {processingmacros = false;}
               | (currentReport[7] != previousReport[7]))
     {
         reportChanged = true;
+        status->lastreporttime = status->timestamp;
         if (processingmacros)
             if ((currentReport[0] == 0 )
                 && (currentReport[1] == 0 )
@@ -359,6 +434,12 @@ if (activeKeys.empty() && processingmacros) {processingmacros = false;}
     {reportChanged = false;
     
     }
+    if ((status->timestamp)-(status->lastreporttime) > 125) // make sure we have at least 1 report every 125 ms even if we don't type.
+    {
+        reportChanged = true;
+        status->lastreporttime = status->timestamp;
+    } 
+
 
     return reportChanged;
 }
@@ -384,6 +465,8 @@ uint16_t KeyScanner::mouse = 0;
 uint16_t KeyScanner::special_key = 0;
 uint16_t KeyScanner::remoteLayer = 0;
 uint16_t KeyScanner::remotespecialkeycode = 0;
+uint32_t KeyScanner::combotimer = 0;
+uint32_t KeyScanner::triggerkeytimer = 0;
 
 uint16_t KeyScanner::oneshotLayer = 0;
 uint8_t KeyScanner::remoteMod = 0;

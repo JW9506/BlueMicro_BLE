@@ -1,5 +1,5 @@
 /*
-Copyright 2019-2020 <Pierre Constantineau>
+Copyright 2019-2021 <Pierre Constantineau>
 
 3-Clause BSD License
 
@@ -26,7 +26,8 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 // THIS FILE CONTAINS THE MACRO DEFINITIONS THAT USERS MAY USE IN THEIR keymap.cpp/h FILES.
 // FOR DATASTRUCTURES USED BY USER FUNCTIONS, SEE datastructures.h
 
-#define COL2ROW       0
+#define NODIODES      0
+#define COL2ROW       0  // TODO: add automatic selection of ANTI-GHOSTING...
 #define ROW2COL       1
 
 #define TEST 0

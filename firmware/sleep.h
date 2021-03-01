@@ -1,5 +1,5 @@
 /*
-Copyright 2018-2020 <Pierre Constantineau>
+Copyright 2018-2021 <Pierre Constantineau>
 
 3-Clause BSD License
 
@@ -28,6 +28,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #include "LedRGB.h"
 #include "LedPwm.h"
 #include "BlueMicro_display.h"
+#include "BlueMicro_tone.h"
 // Keyboard Matrix
 extern byte rows[]  ;      // Contains the GPIO Pin Numbers defined in keyboard_config.h
 extern byte columns[] ;     // Contains the GPIO Pin Numbers defined in keyboard_config.h  
