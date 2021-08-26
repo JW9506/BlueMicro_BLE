@@ -171,7 +171,7 @@ uint32_t mac[MATRIX_ROWS][MATRIX_COLS] =
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,  KC_LBRC, 
         KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,  KC_LPRN,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,  KC_LGUI,
-        KC_LGUI, KC_LALT, KC_ESC,  KC_EQL,  L_LOWER, KC_SPC,_______
+        KC_LGUI, KC_LALT, KC_ESC,  KC_EQL,  L_MLOWER, KC_SPC,_______
     );    
 
  switch ((macroid))
@@ -238,7 +238,7 @@ void process_user_layers(uint16_t layermask)
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
     {KEYMAP(
         KC_RBRC,  KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSPACE, 
-        KC_MINUS, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_QUOTE,
+        KC_RPRN, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_QUOTE,
         KC_ENT,   KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_ENT,
         _______,  KC_LSFT, L_RAISE, KC_MINUS,KC_QUOTE, KC_LGUI,  KC_ENT
     )};
