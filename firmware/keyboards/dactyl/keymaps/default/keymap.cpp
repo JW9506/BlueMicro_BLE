@@ -26,8 +26,8 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
         KC_8,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,
         KC_9,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,
         KC_0,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,
-												                           KC_6,  KC_1,  KC_2,    
-															                                   KC_3,
+                                                   KC_6,  KC_1,  KC_2,    
+                                                                 KC_3,
                                                                  KC_4
     )};
 
@@ -56,14 +56,14 @@ void process_user_layers(uint16_t layermask)
 
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
     {KEYMAP(
-	    KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5, 
+      KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5, 
       KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T, 
       KC_BSPC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,
       KC_LSFT, XXXXXXX, KC_X,    KC_C,    KC_V,    KC_B,
-		  XXXXXXX, KC_QUOT,ALT_SHFT, KC_LEFT, KC_RGHT, KC_SPC, 
-													                         KC_BSPC,KC_LALT,KC_LGUI,
-																	                                 KC_HOME,
-																	                                 KC_END  
+      XXXXXXX, KC_QUOT,ALT_SHFT, KC_LEFT, KC_RGHT, KC_SPC, 
+                                                   KC_BSPC,KC_LALT,KC_LGUI,
+                                                                   KC_HOME,
+                                                                   KC_END  
     )};
 
  
@@ -71,50 +71,50 @@ void setupKeymap() {
 
     uint32_t qwerty_taph[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( 
-	    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       XXXXXXX, CTL_Z_TAP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-		L1GRV_TAP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
-													                         XXXXXXX, XXXXXXX, XXXXXXX,
-																                                     XXXXXXX,
-																	                                   XXXXXXX
+      L1GRV_TAP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+                                                     XXXXXXX, XXXXXXX, XXXXXXX,
+                                                                       XXXXXXX,
+                                                                       XXXXXXX
 );
 
     uint32_t qwerty_hold[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( 
-	    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       XXXXXXX, CTL_Z_HOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-		L1GRV_HOLD,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
-													                         XXXXXXX, XXXXXXX, XXXXXXX,
-																                                     XXXXXXX,
-																	                                   XXXXXXX		
+    L1GRV_HOLD,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+                                                   XXXXXXX, XXXXXXX, XXXXXXX,
+                                                                     XXXXXXX,
+                                                                     XXXXXXX
 );
 
     uint32_t lower[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( \
-	    PRINT_BATTERY, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , 
+    PRINT_BATTERY, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , 
         _______, KC_EXLM, KC_AT  , KC_LBRC, KC_RBRC, KC_PIPE,  
         _______, KC_HASH, KC_DLR , KC_LPRN, KC_RPRN, KC_GRV ,
         _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, 
-		    _______, _______, _______, _______, _______, _______, 
-													                           _______, _______, _______,
-																                                       _______,
-																	                                     _______	
+        _______, _______, _______, _______, _______, _______, 
+                                                     _______, _______, _______,
+                                                                       _______,
+                                                                       _______
 );
 
     uint32_t raise[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( \
-	      HOME_ADD, _______, _______, _______, _______, _______, 
+        HOME_ADD, _______, _______, _______, _______, _______, 
         WORK_ADD, _______, _______, KC_MS_UP, _______, _______,  
         EMAIL_1, _______, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, _______,
         EMAIL_2, _______, _______, _______, _______, _______, 
-		    _______, _______, _______, KC_MS_BTN1, KC_MS_BTN2, _______, 
-													                           _______, _______, _______,
-																                                       _______,
-																	                                     _______	
+        _______, _______, _______, KC_MS_BTN1, KC_MS_BTN2, _______, 
+                                                               _______, _______, _______,
+                                                                                 _______,
+                                                                                 _______
 );
  
     /*
@@ -123,7 +123,7 @@ void setupKeymap() {
     for (int row = 0; row < MATRIX_ROWS; ++row)
     {
         for (int col = 0; col < MATRIX_COLS; ++col)
-        {		
+        {
             matrix[row][col].addActivation(_QWERTY, Method::MT_TAP, qwerty_taph[row][col]);
             matrix[row][col].addActivation(_QWERTY, Method::MT_HOLD, qwerty_hold[row][col]);	
             matrix[row][col].addActivation(_LOWER, Method::PRESS, lower[row][col]);
@@ -168,7 +168,7 @@ void process_user_layers(uint16_t layermask)
 
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
     {KEYMAP(
-		                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_BSPC, 
+                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_BSPC, 
                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_MINS, 
                           KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX,  XXXXXXX,
                           KC_N,    KC_M,    KC_COMM, KC_DOT,  XXXXXXX,  KC_RSFT,
@@ -183,8 +183,8 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
 void setupKeymap() {
 
     uint32_t qwerty_taph[MATRIX_ROWS][MATRIX_COLS] =
-        KEYMAP( 
-		                      XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+        KEYMAP(
+                          XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                           XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                           XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, L2COL_TAP, LG_QUOT_TAP,
                           XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, CTL_SLS_TAP,XXXXXXX,
@@ -195,8 +195,8 @@ void setupKeymap() {
 );
 
     uint32_t qwerty_hold[MATRIX_ROWS][MATRIX_COLS] =
-        KEYMAP( 		
-		                  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+        KEYMAP(
+                          XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                           XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                           XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, L2COL_HOLD, LG_QUOT_HOLD,
                           XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, CTL_SLS_HOLD,XXXXXXX,
@@ -207,7 +207,7 @@ void setupKeymap() {
 );
 
     uint32_t lower[MATRIX_ROWS][MATRIX_COLS] =
-        KEYMAP( \
+        KEYMAP(
                           KC_F6  ,KC_F7  ,KC_F8  ,KC_F9  ,KC_F10 ,KC_F11 ,
                           KC_UP  ,KC_P7  ,KC_P8  ,KC_P9  ,KC_PAST,KC_F12 ,
                           KC_DOWN,KC_P4  ,KC_P5  ,KC_P6  ,KC_PPLS,_______,
@@ -219,7 +219,7 @@ void setupKeymap() {
 );
 
     uint32_t raise[MATRIX_ROWS][MATRIX_COLS] =
-        KEYMAP( \
+        KEYMAP(
                           _______,_______,_______,_______,_______,PRINT_BATTERY,
                           _______,_______,_______,_______,_______,_______,
                           _______,_______,_______,_______,_______,KC_MEDIA_PLAY_PAUSE,
@@ -236,7 +236,7 @@ void setupKeymap() {
         for (int col = 0; col < MATRIX_COLS; ++col)
         {
             matrix[row][col].addActivation(_QWERTY, Method::MT_TAP, qwerty_taph[row][col]);
-            matrix[row][col].addActivation(_QWERTY, Method::MT_HOLD, qwerty_hold[row][col]);				
+            matrix[row][col].addActivation(_QWERTY, Method::MT_HOLD, qwerty_hold[row][col]);
             matrix[row][col].addActivation(_LOWER, Method::PRESS, lower[row][col]);
             matrix[row][col].addActivation(_RAISE, Method::PRESS, raise[row][col]);
         }
