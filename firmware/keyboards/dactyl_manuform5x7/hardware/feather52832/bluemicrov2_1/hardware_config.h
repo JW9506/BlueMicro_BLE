@@ -24,10 +24,10 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 /* HARDWARE DEFINITION*/
 /* key matrix size */
 #define MATRIX_ROWS 6
-#define MATRIX_COLS 6
+#define MATRIX_COLS 7
 
-#define MATRIX_ROW_PINS {3, 2, 12, 14, 13, 11 } // { F6, F7, B1, B3, B2, B6 }
-#define MATRIX_COL_PINS {27, 28, 29, 30, 15, 16 } // { D4, C6, D7, E6, B4, B5 }
+#define MATRIX_COL_PINS {4, 3, 2, 12, 14, 13, 11 } // { F5, F6, F7, B1, B3, B2, B6 }
+#define MATRIX_ROW_PINS {27, 28, 29, 30, 15, 16 } // { D4, C6, D7, E6, B4, B5 }
 #define UNUSED_PINS {}
 
 /* Commented because LEDs are not used. Pin 16 is conflicting with matrix mapping

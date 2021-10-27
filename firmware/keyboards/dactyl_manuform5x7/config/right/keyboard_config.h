@@ -61,7 +61,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
                        k43, k44, k45, k46, \
             k41,  k42,                     \
             k51,  k52,                     \
-            k53,  k54,                     \
+            k53,  k54                     \
 ) \
 { \
     {k00,  k01, k02, k03, k04, k05, k06  }, \

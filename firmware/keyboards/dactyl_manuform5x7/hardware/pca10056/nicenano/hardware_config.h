@@ -24,10 +24,10 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 /* HARDWARE DEFINITION*/
 /* key matrix size */
 #define MATRIX_ROWS 6
-#define MATRIX_COLS 6
+#define MATRIX_COLS 7
 
-#define MATRIX_ROW_PINS {2, 47, 45, 43, 10, 9 } // { F6, F7, B1, B3, B2, B6 }
-#define MATRIX_COL_PINS {22, 24, 32, 11, 36, 38 } // { D4, C6, D7, E6, B4, B5 }
+#define MATRIX_COL_PINS {29, 2, 47, 45, 43, 10, 9 } // { F5, F6, F7, B1, B3, B2, B6 }
+#define MATRIX_ROW_PINS {22, 24, 32, 11, 36, 38 } // { D4, C6, D7, E6, B4, B5 }
 #define UNUSED_PINS {}
 
 /* COL2ROW or ROW2COL */
