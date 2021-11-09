@@ -219,7 +219,7 @@ uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
         KC_LCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
         KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,
-                                            KC_BSPC, L_LOWER
+                                            KC_BSPC, L_LOWER,
                                             KC_LCTL, KC_LALT,
                                             KC_HOME, KC_END
 	);
