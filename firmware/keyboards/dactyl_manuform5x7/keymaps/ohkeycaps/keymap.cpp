@@ -66,9 +66,9 @@ void process_user_layers(uint16_t layermask)
  * `------+------+------+------+------+------'
  * | Left | `   |    '  | Right|
  * `------+----------------------------------.
- *                             |BS | Shift  |
+ *                             |BS | CTRL  |
  *                             `-------------------------.
- *                                           | CTRL|LOWER|
+ *                                           |SHIFT |LOWER|
  *                                           ------------|
  *                                           | ATL| WIN  |
  *                                           ------------'
@@ -82,9 +82,9 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
         KC_EQUAL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
         KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
-                                            KC_BSPC, KC_LSFT,
+                                            KC_BSPC, KC_LCTL,
                                             L_LOWER, KC_LGUI,
-                                            KC_LCTL, KC_LALT
+                                            KC_LSFT, KC_LALT
 	)
     };
 
