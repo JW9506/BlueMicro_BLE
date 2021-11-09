@@ -112,9 +112,9 @@ void setupKeymap() {
     uint32_t lower[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( \
   _______,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,   KC_F6,   \
-  _______,_______,_______,_______,_______,_______, _______, \
+  _______,KC_PSCR,_______,_______,_______,_______, _______, \
   _______,KC_LGUI,KC_LALT,KC_LSFT,KC_LCTL,_______, _______, \
-  _______,KC_UND, KC_CUT, KC_CPY, KC_PST, _______, \
+  KC_LSFT,KC_UND, KC_CUT, KC_CPY, KC_PST, _______, \
   _______,_______,_______,_______,                 \
                                   _______,_______, \
                                   _______,_______, \
@@ -217,7 +217,7 @@ uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
 	    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_HOME,
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
         KC_EQUAL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
+        _______, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
         KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
                                             KC_BSPC, KC_LSFT,
                                             KC_LCTL, KC_LALT,
