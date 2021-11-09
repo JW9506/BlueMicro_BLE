@@ -218,7 +218,7 @@ uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
         KC_EQUAL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
-        KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,
+        KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
                                             KC_BSPC, KC_LSFT,
                                             KC_LCTL, KC_LALT,
                                             L_LOWER, KC_LGUI
@@ -453,11 +453,11 @@ uint32_t qwerty[MATRIX_ROWS][MATRIX_COLS] =
 
 uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
     KEYMAP(
-    KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_LWIN,
+    KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_DEL,
     KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
     XXXXXXX, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_MINUS,
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
-                               KC_DOWN, KC_UP,   KC_LBRC,   KC_RBRC,
+                               KC_DOWN, KC_LBRC, KC_RBRC, KC_UP
             KC_ENT,  KC_SPC,
             KC_RALT, KC_RCTL,
             KC_LGUI, L_RAISE
