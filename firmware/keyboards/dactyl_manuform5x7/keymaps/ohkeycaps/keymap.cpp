@@ -457,7 +457,7 @@ uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
     KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
     XXXXXXX, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_MINUS,
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
-                               KC_DOWN, KC_LBRC, KC_RBRC, KC_UP
+                               KC_DOWN, KC_LBRC, KC_RBRC, KC_UP,
             KC_ENT,  KC_SPC,
             KC_RALT, KC_RCTL,
             KC_LGUI, L_RAISE
