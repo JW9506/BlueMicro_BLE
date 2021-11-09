@@ -75,16 +75,18 @@ void process_user_layers(uint16_t layermask)
  */
 
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
-    KEYMAP(
+    {
+        KEYMAP(
 	    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_HOME,
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
         KC_EQUAL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
         KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
                                             KC_BSPC, KC_LSFT,
-                                            KC_LALT, KC_LCTL,
-                                            L_LOWER, KC_LGUI
-	);
+                                            L_LOWER, KC_LGUI,
+                                            KC_LCTL, KC_LALT
+	)
+    };
 
 
 void setupKeymap() {
@@ -312,6 +314,7 @@ void process_user_layers(uint16_t layermask)
  */
 
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
+    {
     KEYMAP(
     KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_DEL,
     KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
@@ -319,9 +322,10 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
                                KC_DOWN, KC_LBRC, KC_RBRC, KC_UP,
             KC_ENT,  KC_SPC,
-            KC_RCTL, KC_RALT,
             KC_LGUI, L_RAISE
-        );
+            KC_RALT, KC_RCTL,
+        )
+    };
 
 
 
