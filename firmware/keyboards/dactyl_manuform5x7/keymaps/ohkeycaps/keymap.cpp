@@ -221,7 +221,7 @@ uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
         KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,
                                             KC_BSPC, KC_LSFT,
                                             KC_LCTL, KC_LALT,
-                                            L_LOWER, XXXXXXX
+                                            L_LOWER, KC_LGUI
 	);
 
 uint32_t dvorak[MATRIX_ROWS][MATRIX_COLS] =
@@ -460,7 +460,7 @@ uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
                                KC_DOWN, KC_UP,   KC_LBRC,   KC_RBRC,
             KC_ENT,  KC_SPC,
             KC_RALT, KC_RCTL,
-            XXXXXXX, L_RAISE
+            KC_LGUI, L_RAISE
         );
 
 uint32_t dvorak[MATRIX_ROWS][MATRIX_COLS] =
