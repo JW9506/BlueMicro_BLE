@@ -214,14 +214,14 @@ uint32_t qwerty[MATRIX_ROWS][MATRIX_COLS] =
 
 uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
     KEYMAP(
-	    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   XXXXXXX,
-        KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,   XXXXXXX,
+	    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_HOME,
+        KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
         KC_LCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
         KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,
-                                            KC_BSPC, L_LOWER,
+                                            KC_BSPC, KC_LSFT,
                                             KC_LCTL, KC_LALT,
-                                            KC_HOME, KC_END
+                                            L_LOWER, XXXXXXX
 	);
 
 uint32_t dvorak[MATRIX_ROWS][MATRIX_COLS] =
@@ -453,14 +453,14 @@ uint32_t qwerty[MATRIX_ROWS][MATRIX_COLS] =
 
 uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
     KEYMAP(
-    XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_O,      KC_LWIN,
-    XXXXXXX, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
+    KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_O,      KC_LWIN,
+    KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
     XXXXXXX, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_MINUS,
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
                                KC_DOWN, KC_UP,   KC_LBRC,   KC_RBRC,
             KC_ENT,  KC_SPC,
             KC_RALT, KC_RCTL,
-            KC_PGUP, KC_PGDN
+            XXXXXXX, L_RAISE
         );
 
 uint32_t dvorak[MATRIX_ROWS][MATRIX_COLS] =
