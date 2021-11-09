@@ -453,7 +453,7 @@ uint32_t qwerty[MATRIX_ROWS][MATRIX_COLS] =
 
 uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
     KEYMAP(
-    KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_O,      KC_LWIN,
+    KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_LWIN,
     KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
     XXXXXXX, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_MINUS,
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
