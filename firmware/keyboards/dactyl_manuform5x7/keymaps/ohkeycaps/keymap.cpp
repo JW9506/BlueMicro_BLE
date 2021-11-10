@@ -64,7 +64,7 @@ void process_user_layers(uint16_t layermask)
  * |------+------+------+------+------+------|------'
  * | Ctrl |   Z  |   X  |   C  |   D  |   V  |
  * `------+------+------+------+------+------'
- * | LEFT| `   |    '  | RIGHT |
+ * | DOWN | `   |    '  | LEFT  |
  * `------+----------------------------------.
  *                             |BS | LOWER  |
  *                             `-------------------------.
@@ -81,7 +81,7 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
         L_RAISE, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_EQUAL,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
-        KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
+        KC_DOWN, KC_GRAVE, KC_QUOTE, KC_LEFT,
                                             KC_BSPC, L_LOWER,
                                             KC_LSFT, KC_LGUI,
                                             KC_LCTL, KC_LALT
@@ -303,7 +303,7 @@ void process_user_layers(uint16_t layermask)
  *         `------+------+------+------+------+------|------|
  *                |   K  |   H  |   ,  |   .  |   /  |SHIFT |
  *                `-----------------------------------------'
- *                              | (    |  [ |   ]   |  )    |
+ *                              | RIGHT|  [ |   ]   | UP    |
  *                ,-----------------------------------------'
  *                | Enter| SPACE|
  *    ,-------------------------'
@@ -320,7 +320,7 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
     KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
     KC_MINUS,KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      L_LOWER,
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
-                               KC_LPRN, KC_LBRC, KC_RBRC,   KC_RPRN,
+                               KC_RIGHT, KC_LBRC, KC_RBRC,  KC_UP,
             KC_ENT,  KC_SPC,
             KC_LGUI, KC_MINUS,
             KC_RALT, KC_RCTL
@@ -373,7 +373,7 @@ void setupKeymap() {
  *         `------+------+------+------+------+------|------|
  *                |     | =    | -    |      |      | SHIFT|
  *                `-----------------------------------------'
- *                              |      |      |      |      |
+ *                              |      |  (   |  )   |      |
  *                ,-----------------------------------------'
  *                |      | SHIFT|
  *  ,---------------------------'
@@ -388,7 +388,7 @@ void setupKeymap() {
   KC_RPRN,KC_HOME, _______,  _______,  KC_END,  KC_MINS, KC_UNDS,  \
   _______,KC_LEFT, KC_DOWN,  KC_UP,  KC_RIGHT,  KC_PLUS, KC_PIPE,  \
           _______,KC_EQUAL, KC_MINUS, _______ , _______, KC_RSFT,  \
-                            _______ , _______,  _______, _______,  \
+                            _______ , KC_LPRN,  KC_RPRN, _______,  \
           _______, KC_RSFT,                                      \
           _______, _______,                                      \
           _______, _______                                       \
