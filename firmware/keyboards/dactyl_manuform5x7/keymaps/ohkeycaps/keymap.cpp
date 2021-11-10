@@ -64,11 +64,11 @@ void process_user_layers(uint16_t layermask)
  * |------+------+------+------+------+------|------'
  * | Ctrl |   Z  |   X  |   C  |   D  |   V  |
  * `------+------+------+------+------+------'
- * | =    | `   |    '  | -    |
+ * | LEFT| `   |    '  | RIGHT |
  * `------+----------------------------------.
  *                             |BS | LOWER  |
  *                             `-------------------------.
- *                                           |CTRL |SHIFT|
+ *                                           |CTRL | =   |
  *                                           ------------|
  *                                           | ATL| WIN  |
  *                                           ------------'
@@ -81,9 +81,9 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
         L_RAISE, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_EQUAL,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
-        KC_EQUAL, KC_GRAVE, KC_QUOTE, KC_MINUS,
+        KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
                                             KC_BSPC, L_LOWER,
-                                            KC_LSFT, KC_LGUI,
+                                            KC_EQUAL, KC_LGUI,
                                             KC_LCTL, KC_LALT
 	)
     };
@@ -102,7 +102,7 @@ void setupKeymap() {
  * |------+------+------+------+------+------|------'
  * |      | Undo | Cut  | Copy | Paste|      |
  * `-----------------------------------------'
- * |      |      |      |      |
+ * | UP   |      |      | DOWN |
  * `------+----------------------------------.
  *                             |      |      |
  *                             `---------------------------.
@@ -117,7 +117,7 @@ void setupKeymap() {
   _______,_______,KC_PSCR,KC_ESC ,_______,_______, _______, \
   _______,KC_LGUI,KC_LALT,KC_LSFT,KC_LCTL,_______, _______, \
   KC_LSFT,KC_UND, KC_CUT, KC_CPY, KC_PST, _______, \
-  _______,_______,_______,_______,                 \
+  KC_UP,_______,_______,KC_DOWN,                 \
                                   _______,_______, \
                                   _______,_______, \
                                   _______,_______  \
@@ -299,7 +299,7 @@ void process_user_layers(uint16_t layermask)
  *         |------------------------------------------------|
  *         |pgDown|   J  |   L  |   U  |   Y  |   ;  |  \   |
  *         |------+------+------+------+------+-------------|
- *         |  -   |   M  |   N  |   E  |   I  |   O  | lower|
+ *         |  -   |   M  |   N  |   E  |   I  |   O  | LOWER|
  *         `------+------+------+------+------+------|------|
  *                |   K  |   H  |   ,  |   .  |   /  |SHIFT |
  *                `-----------------------------------------'
@@ -307,9 +307,9 @@ void process_user_layers(uint16_t layermask)
  *                ,-----------------------------------------'
  *                | Enter| SPACE|
  *    ,-------------------------'
- *    | ALT | CTRL|
+ *    |RAISE| CTRL|
  *    |-----------|
- *    | WIN |RAISE|
+ *    | WIN |ALT  |
  *    `-----------'
  */
 
@@ -322,7 +322,7 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
                                KC_LPRN, KC_LBRC, KC_RBRC,   KC_RPRN,
             KC_ENT,  KC_SPC,
-            KC_LGUI, L_RAISE,
+            KC_LGUI, KC_MINUS,
             KC_RALT, KC_RCTL
         )
     };
