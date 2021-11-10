@@ -60,11 +60,11 @@ void process_user_layers(uint16_t layermask)
  * |-----------------------------------------|------|
  * | Tab  |   Q  |   W  |   F  |   P  |   G  | END  |
  * |------+------+------+------+------+------|------|
- * | Shift|   A  |   R  |   S  |   T  |   G  |      |
+ * | RAISE|   A  |   R  |   S  |   T  |   G  |      |
  * |------+------+------+------+------+------|------'
  * | Ctrl |   Z  |   X  |   C  |   D  |   V  |
  * `------+------+------+------+------+------'
- * | Left | `   |    '  | Right|
+ * | =    | `   |    '  | -    |
  * `------+----------------------------------.
  *                             |BS | LOWER  |
  *                             `-------------------------.
@@ -79,9 +79,9 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
         KEYMAP(
 	    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_HOME,
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
-        KC_EQUAL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
+        L_RAISE, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   XXXXXXX,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
-        KC_LEFT, KC_GRAVE, KC_QUOTE, KC_RIGHT,
+        KC_EQUAL, KC_GRAVE, KC_QUOTE, KC_MINUS,
                                             KC_BSPC, L_LOWER,
                                             KC_LSFT, KC_LGUI,
                                             KC_LCTL, KC_LALT
@@ -94,7 +94,7 @@ void setupKeymap() {
 
 /* Lower
  * ,------------------------------------------------.
- * |  F12 |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |
+ * |      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |
  * |-----------------------------------------|------|
  * |      |      | PRINT| ESC  |      |      |      |
  * |------+------+------+------+------+------|------|
@@ -299,11 +299,11 @@ void process_user_layers(uint16_t layermask)
  *         |------------------------------------------------|
  *         |pgDown|   J  |   L  |   U  |   Y  |   ;  |  \   |
  *         |------+------+------+------+------+-------------|
- *         |      |   M  |   N  |   E  |   I  |   O  |  -   |
+ *         |      |   M  |   N  |   E  |   I  |   O  | lower|
  *         `------+------+------+------+------+------|------|
  *                |   K  |   H  |   ,  |   .  |   /  |SHIFT |
  *                `-----------------------------------------'
- *                              | DOWN  |  [ |   ]   |  UP  |
+ *                              | (    |  [ |   ]   |  )    |
  *                ,-----------------------------------------'
  *                | Enter| SPACE|
  *    ,-------------------------'
@@ -318,9 +318,9 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
     KEYMAP(
     KC_PGUP, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_ATAB,
     KC_PGDN, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCOLON, KC_BSLASH,
-    XXXXXXX, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      KC_MINUS,
+    XXXXXXX, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,      L_LOWER,
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
-                               KC_DOWN, KC_LBRC, KC_RBRC, KC_UP,
+                               KC_LPRN, KC_LBRC, KC_RBRC,   KC_RPRN,
             KC_ENT,  KC_SPC,
             KC_LGUI, L_RAISE,
             KC_RALT, KC_RCTL
@@ -367,13 +367,13 @@ void setupKeymap() {
  *         ,------------------------------------------------.
  *         |      |   ^  |   &  |  *   |   (  |   )  |  Del |
  *         |------------------------------------------------|
- *         |   )  |      |   7  |  8   |   9  |   -  |   _  |
+ *         |   )  | HOME |      |      | END  |   -  |   _  |
  *         |------+------+------+------+------+-------------|
- *         |      |      |   4  |  5   |   6  |   +  |   |  |
+ *         |      | LEFT | DOWN | UP   | RIGHT|   +  |   |  |
  *         `------+------+------+------+------+------|------|
- *                |Numlck|   1  |  2   |   3  |   /  |      |
+ *                |      |      |      |      |      | shift|
  *                `-----------------------------------------'
- *                              |  0   |   .  |      |      |
+ *                              |      |      |      |      |
  *                ,-----------------------------------------'
  *                |      |      |
  *  ,---------------------------'
@@ -385,11 +385,11 @@ void setupKeymap() {
     uint32_t raise[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( \
   _______,KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,   \
-  KC_RPRN,_______, KC_P7 ,  KC_P8 ,  KC_P9 ,  KC_MINS, KC_UNDS,  \
-  _______,_______, KC_P4 ,  KC_P5 ,  KC_P6 ,  KC_PLUS, KC_PIPE,  \
-          KC_NLCK, KC_P1 ,  KC_P2 ,  KC_P3 ,  KC_SLSH, _______,  \
-                            KC_P0 ,  KC_DOT,  _______, _______,  \
-          KC_PENT, _______,                                      \
+  KC_RPRN,KC_HOME, _______,  _______,  KC_END,  KC_MINS, KC_UNDS,  \
+  _______,KC_LEFT, KC_DOWN,  KC_UP,  KC_RIGHT,  KC_PLUS, KC_PIPE,  \
+          _______, _______, _______ , _______ , _______, KC_RSFT,  \
+                            _______ , _______,  _______, _______,  \
+          KC_PENT, KC_RSFT,                                      \
           _______, _______,                                      \
           _______, _______                                       \
 );
