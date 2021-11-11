@@ -115,7 +115,7 @@ void setupKeymap() {
         KEYMAP( \
   _______,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,   KC_F6,   \
   _______,_______,KC_PSCR,KC_ESC ,_______,_______, _______, \
-  _______,KC_MS_LEFT,KC_MS_RIGHT,KC_MS_WH_DOWN,KC_LCTL,_______, _______, \
+  _______,KC_MS_BTN1,KC_MS_BTN2,KC_MS_BTN3,KC_LCTL,_______, _______, \
   KC_LSFT,KC_UND, KC_CUT, KC_CPY, KC_PST, _______, \
   KC_UP,_______,_______,KC_DOWN,                 \
                                   _______,_______, \
