@@ -369,7 +369,7 @@ void setupKeymap() {
  *         |------------------------------------------------|
  *         |   )  | HOME |      |      | END  |   -  |   _  |
  *         |------+------+------+------+------+-------------|
- *         |      | LEFT | DOWN | UP   | RIGHT|   +  |   |  |
+ *         |      | LEFT | DOWN | UP   | RIGHT|   +  |      |
  *         `------+------+------+------+------+------|------|
  *                |     | =    | -    |      |      | SHIFT|
  *                `-----------------------------------------'
@@ -386,7 +386,7 @@ void setupKeymap() {
         KEYMAP( \
   _______,KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,   \
   KC_RPRN,KC_HOME, _______,  _______,  KC_END,  KC_MINS, KC_UNDS,  \
-  _______,KC_LEFT, KC_DOWN,  KC_UP,  KC_RIGHT,  KC_PLUS, KC_PIPE,  \
+  _______,KC_LEFT, KC_DOWN,  KC_UP,  KC_RIGHT,  KC_PLUS, _______,  \
           _______,KC_EQUAL, KC_MINUS, _______ , _______, KC_RSFT,  \
                             _______ , KC_LPRN,  KC_RPRN, _______,  \
           _______, KC_RSFT,                                      \
