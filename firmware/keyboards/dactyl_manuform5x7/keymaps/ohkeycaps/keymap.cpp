@@ -322,7 +322,7 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
              KC_K,    KC_H,    KC_COMMA,KC_DOT,  KC_SLSH,   KC_RSFT,
                                KC_RIGHT, KC_LBRC, KC_RBRC,  KC_UP,
             KC_ENT,  KC_SPC,
-            KC_LGUI, KC_MINUS,
+            KC_LGUI, L_RAISE,
             KC_RALT, KC_RCTL
         )
     };
