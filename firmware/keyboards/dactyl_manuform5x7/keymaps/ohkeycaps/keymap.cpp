@@ -56,11 +56,11 @@ void process_user_layers(uint16_t layermask)
 
 /* Qwerty
  * ,------------------------------------------------.
- * | Esc  |   1  |   2  |   3  |   4  |   5  | HOME |
+ * | RAISE|   1  |   2  |   3  |   4  |   5  | HOME |
  * |-----------------------------------------|------|
  * | Tab  |   Q  |   W  |   F  |   P  |   G  | END  |
  * |------+------+------+------+------+------|------|
- * | RAISE|   A  |   R  |   S  |   T  |   G  | =    |
+ * | ESC  |   A  |   R  |   S  |   T  |   G  | =    |
  * |------+------+------+------+------+------|------'
  * | Shift|   Z  |   X  |   C  |   D  |   V  |
  * `------+------+------+------+------+------'
@@ -77,9 +77,9 @@ void process_user_layers(uint16_t layermask)
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
     {
         KEYMAP(
-	    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_HOME,
+	    L_RAISE,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_HOME,
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_END,
-        L_RAISE, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_EQUAL,
+        KC_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_EQUAL,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
         KC_DOWN, KC_GRAVE, KC_QUOTE, KC_LEFT,
                                             KC_BSPC, L_LOWER,
@@ -342,7 +342,7 @@ void setupKeymap() {
  *         `------+------+------+------+------+------|------|
  *                |  .   | 1    | 2    | 3    | 0     |      |
  *                `-----------------------------------------'
- *                              |      |      |      |      |
+ *                              |      | (    |  )   |      |
  *                ,-----------------------------------------'
  *                |      |      |
  *  ,---------------------------'
@@ -357,7 +357,7 @@ void setupKeymap() {
    _______,_______, KC_7, KC_8, KC_9,  KC_DEL,  _______,  \
    _______,KC_COMM, KC_4, KC_5, KC_6, KC_BSPC, _______,  \
            KC_DOT,  KC_1, KC_2, KC_3,  KC_0, KC_RSFT,  \
-                             _______, _______, _______, _______,  \
+                             _______, KC_LPRN, KC_RPRN, _______,  \
            _______, _______,                                      \
            _______, _______,                                      \
            _______, _______                                       \
